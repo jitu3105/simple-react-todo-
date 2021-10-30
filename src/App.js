@@ -1,24 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import classes from './App.module.css';
+import { useState, useEffect } from 'react'
+import Form from './Components/Form'
+import List from './Components/List'
+import Store from './Context/Store'
 
 function App() {
+  let temp = []
+  const initData = JSON.parse(localStorage.getItem('tasks'))
+  const [input, setInput] = useState('');
+  const [edit, setEdit] = useState({});
+  const [data, setData] = useState([]);
+  const addHandler = (dta) => {
+    setData([...data, dta]);
+  }
+  const updateHandler = (dta) => {
+    temp = [...dta]
+    setData(temp);
+  }
+  useEffect(() => {
+    if (initData) {
+      setData([...initData]);
+    }
+
+  }, [])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Store.Provider value={{ data, add: addHandler, update: updateHandler }}>
+      <div className={classes.App}>
+        <Form edit={edit} input={input} setEdit={setEdit} setInput={setInput} />
+        <List edit={edit} setInput={setInput} setEdit={setEdit} />
+      </div>
+    </Store.Provider>
   );
 }
 

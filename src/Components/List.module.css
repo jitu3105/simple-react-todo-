@@ -1,0 +1,58 @@
+.ListContainer{
+    margin-top: 2vh;
+    padding:2vh;
+    max-height:80vh;
+    overflow-y: auto;
+    width:60%;
+    display:flex;
+    flex-direction: column-reverse;
+   background: #343e50;
+    border-radius: 10px;
+}
+
+.ListItem{
+    height:fit-content;
+    background:darkgray;
+    padding:1vh;
+    font-size: medium;
+    border-radius: 10px;
+    color:#fff;
+    font-weight: bold;
+    display:flex;
+    width:100%;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2vh;
+}
+.Actions{
+    display:flex;
+}
+.Actions button{
+    margin:0 1vh;
+    transition-duration: 500ms;
+}
+
+.del:hover{
+    cursor:pointer;
+    background:crimson;
+    color:#fff;
+}
+
+.edit:hover{
+    cursor:pointer;
+    background:blueviolet;
+    color:#fff;
+}
+
+@media(max-width:700px){
+    .ListContainer{
+        width:100%;
+    }
+.Actions{
+flex-direction: column;
+}
+.Actions
+button{
+    margin-bottom: 2vh;
+}
+      }

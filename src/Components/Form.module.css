@@ -1,0 +1,43 @@
+.form{
+    width:60%;
+    display:flex;
+    padding:2vh;
+    justify-content: space-between;
+    background: #343e50;
+    border-radius: 10px;
+}
+.input{
+    width:25vw;
+}
+.Add{
+    transition-duration: 500ms;
+}
+.Add:hover{
+    cursor:pointer;
+    background:black;
+    color:#fff;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #fff;
+    opacity: 1; /* Firefox */
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #fff;
+  }
+  
+  ::-ms-input-placeholder { /* Microsoft Edge */
+    color: #fff;
+  }
+
+
+  @media(max-width:700px){
+.form{
+    width:100%;
+}
+
+.input{
+    width:30vw;
+}
+  }
